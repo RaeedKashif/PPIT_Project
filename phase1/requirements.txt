@@ -1,0 +1,13 @@
+# Phase 1 — Image-to-Word Converter
+# Tested on Python 3.10 and Python 3.12 (Windows 11 + venv).
+#
+# numpy is pinned below 2.0 because opencv-python 4.10.x ships pre-built
+# wheels linked against the NumPy 1.x ABI; mixing in numpy 2.x at runtime
+# raises "module compiled against API version 0x10 but this version of
+# numpy is 0x12" on import. Keep these two in sync.
+numpy>=1.26,<2.0
+opencv-python==4.10.0.84
+pytesseract==0.3.13
+python-docx==1.1.2
+Pillow>=10.4,<12
+
