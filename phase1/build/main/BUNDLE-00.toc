@@ -1,3 +1,0 @@
-([('main',
-   '/Users/fatimamalik/Downloads/PPIT_Project/phase1/dist/main',
-   'EXECUTABLE')],)

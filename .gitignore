@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# PyInstaller build output
+build/
+dist/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# macOS metadata
+__MACOSX/
+.DS_Store
+._*
+
+# IDE
+.vscode/
+.idea/
+
+# Streamlit local config
+.streamlit/secrets.toml

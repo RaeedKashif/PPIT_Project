@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 import shutil
+import sys
 from dataclasses import dataclass
 from typing import Iterable
 
@@ -57,6 +58,14 @@ def configure_tesseract() -> str | None:
     if on_path:
         pytesseract.pytesseract.tesseract_cmd = on_path
         return on_path
+
+    # When running as a PyInstaller bundle, check for bundled Tesseract-OCR folder
+    # placed next to the executable.
+    if getattr(sys, "frozen", False):
+        bundled = os.path.join(os.path.dirname(sys.executable), "Tesseract-OCR", "tesseract.exe")
+        if os.path.isfile(bundled):
+            pytesseract.pytesseract.tesseract_cmd = bundled
+            return bundled
 
     fallback = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
     if os.path.isfile(fallback):
