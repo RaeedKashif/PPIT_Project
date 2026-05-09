@@ -13,7 +13,13 @@ import os
 import sys
 import tempfile
 
+import pytesseract
 import streamlit as st
+
+# On Linux (Streamlit Cloud) tesseract is installed to /usr/bin/tesseract via packages.txt.
+# Set it explicitly so pytesseract doesn't rely solely on PATH detection.
+if sys.platform != "win32":
+    pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 # Allow imports from src/ regardless of working directory
 sys.path.insert(0, os.path.dirname(__file__))
